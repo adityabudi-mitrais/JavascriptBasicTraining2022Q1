@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,23 @@
     <title>User</title>
     <link rel="stylesheet" href="../styles/index.css">
 </head>
+
 <body>
     <div class="container">
         <div class="user-search">
             <h1>Employee</h1>
             <div class="search-form">
-                <b>Id: </b>
-                <input type="number" id="userId">
-                <button id="btnSearch">Search</button>
+                <form onsubmit="searchUser(event)">
+                    <b>Id: </b>
+                    <input type="number" id="userId" onEnt>
+                    <button type="submit">Search</button>
+                </form>
             </div>
         </div>
 
         <div class="user-detail">
             <h1>Employee Details</h1>
+            <table id="user-table"></table>
             <div class="user-detail-button">
                 <button>Posts</button>
                 <button>Albums</button>
@@ -44,9 +49,12 @@
 
     <script src="../dist/main.js"></script>
     <script>
-        window.onload = function() {
-            App.run()
+        function searchUser(event) {
+            App.loadUser('userId', 'user-table', 'user-detail');
+            event.preventDefault();
         }
+
     </script>
 </body>
+
 </html>
