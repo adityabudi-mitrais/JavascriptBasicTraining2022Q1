@@ -87,9 +87,9 @@ function todos() {
             result.forEach(item => {
                 todoBodyContent = todoBodyContent.concat(
                     `<tr>
-                        <th scope="row">${item.id}</th>
-                        <th>${item.title}</th>
-                        <th>${item.completed}</th>
+                        <td scope="row">${item.id}</td>
+                        <td>${item.title}</td>
+                        <td>${item.completed}</td>
                     </tr>`
                 )
             })
