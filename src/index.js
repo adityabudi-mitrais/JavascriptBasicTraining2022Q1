@@ -1,11 +1,10 @@
 let { User } = require('./user/user');
-let { Post } = require('./post/post')
 let user = new User();
-let post = new Post();
 
 const { getAlbumByUserId } = require("./album/album");
+const { getUserPosts } = require('./post/post');
 
-function userTable (result) { 
+function userTable(result) {
     return `<tr>
         <td>Id</td>
         <td>${result.id}</td>
@@ -41,13 +40,23 @@ function userTable (result) {
     </tr>`;
 }
 
-function createPostTable(result) {
-    for (let i = 0; i < result.length; i++) {
-        const element = array[i];
-        
-    }
+const loadUserPost = () =>  {
+    const postTable = document.getElementById('post-table').getElementsByTagName('tbody')[0]
+        const newTable = document.createElement('tbody')
+        const userId = document.getElementById('userId').value
+        getUserPosts(userId).then(data => {
+            for (let i in data) {
+                const row = newTable.insertRow(i)
+                const id = row.insertCell(0)
+                const title = row.insertCell(1)
+                const body = row.insertCell(2)
+                id.innerHTML = data[i].id
+                title.innerHTML = data[i].title
+                body.innerHTML = data[i].body
+            }
+            postTable.replaceWith(newTable)
+        })
 }
-
 const getAlbumData = () => {
     const albumTable = document.getElementById('album-table').getElementsByTagName('tbody')[0]
     const newTable = document.createElement('tbody')
@@ -80,5 +89,6 @@ module.exports = {
                 console.log(err);
             })
     },
+    loadUserPost,
     getAlbumData
 }

@@ -26,7 +26,7 @@
             <h1>Employee Details</h1>
             <table id="user-table"></table>
             <div class="user-detail-button">
-                <button onclick="loadPost()">Posts</button>
+                <button onclick="loadPost(event)">Posts</button>
                 <button onclick="getAlbums(event)">Albums</button>
                 <button>Todos</button>
             </div>
@@ -34,6 +34,16 @@
 
         <div class="post-grid">
             <h1>Posts</h1>
+            <div>
+                <table id="post-table">
+                    <thead align="left">
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
 
         <div class="album-grid">
@@ -63,8 +73,9 @@
             event.preventDefault();
         }
 
-        function loadPost() {
-            App.loadPost();
+        function loadPost(event) {
+            event.preventDefault;
+            App.loadUserPost();
         }
         function getAlbums(e) {
             e.preventDefault()
