@@ -3,6 +3,8 @@ let { Post } = require('./post/post')
 let user = new User();
 let post = new Post();
 
+const { getAlbumByUserId } = require("./album/album");
+
 function userTable (result) { 
     return `<tr>
         <td>Id</td>
@@ -44,7 +46,23 @@ function createPostTable(result) {
         const element = array[i];
         
     }
+}
 
+const getAlbumData = () => {
+    const albumTable = document.getElementById('album-table').getElementsByTagName('tbody')[0]
+    const newTable = document.createElement('tbody')
+    const userId = document.getElementById('userId').value
+    albumTable.innerHTML = 'Loading...'
+    getAlbumByUserId(userId).then(data => {
+        for (let i in data) {
+            const row = newTable.insertRow(i)
+            const id = row.insertCell(0)
+            const title = row.insertCell(1)
+            id.innerHTML = data[i].id
+            title.innerHTML = data[i].title
+        }
+        albumTable.replaceWith(newTable)
+    })
 }
 
 module.exports = {
@@ -61,16 +79,6 @@ module.exports = {
             .catch(err => {
                 console.log(err);
             })
-        
     },
-    loadPost: () => {
-        post.loadPost(1)
-        .then(result => {
-            // result.forEach(res => {
-            //     console.log(res)
-                
-            // });
-            console.log(result[0])
-        })
-    }
+    getAlbumData
 }
