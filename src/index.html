@@ -22,7 +22,7 @@
             <h1>Employee Details</h1>
             <div class="user-detail-button">
                 <button>Posts</button>
-                <button>Albums</button>
+                <button id="btn-album">Albums</button>
                 <button>Todos</button>
             </div>
         </div>
@@ -33,6 +33,15 @@
 
         <div class="album-grid">
             <h1>Albums</h1>
+            <div>
+                <table id="album-table">
+                    <thead align="left">
+                        <th>ID</th>
+                        <th>Title</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
 
         <div class="todo-grid">
@@ -45,7 +54,7 @@
     <script src="../dist/main.js"></script>
     <script>
         window.onload = function() {
-            App.run()
+            App.run('containers')
         }
     </script>
 </body>
