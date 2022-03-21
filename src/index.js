@@ -1,5 +1,7 @@
 let { User } = require('./user/user');
+let { Post } = require('./post/post')
 let user = new User();
+let post = new Post();
 
 function userTable (result) { 
     return `<tr>
@@ -37,6 +39,14 @@ function userTable (result) {
     </tr>`;
 }
 
+function createPostTable(result) {
+    for (let i = 0; i < result.length; i++) {
+        const element = array[i];
+        
+    }
+
+}
+
 module.exports = {
     loadUser: (inputId, tableId, elementClass) => {
         let input = document.getElementById(inputId);
@@ -52,5 +62,15 @@ module.exports = {
                 console.log(err);
             })
         
+    },
+    loadPost: () => {
+        post.loadPost(1)
+        .then(result => {
+            // result.forEach(res => {
+            //     console.log(res)
+                
+            // });
+            console.log(result[0])
+        })
     }
 }

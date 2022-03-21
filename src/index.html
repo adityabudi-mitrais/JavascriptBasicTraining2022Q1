@@ -26,7 +26,7 @@
             <h1>Employee Details</h1>
             <table id="user-table"></table>
             <div class="user-detail-button">
-                <button>Posts</button>
+                <button onclick="loadPost()">Posts</button>
                 <button>Albums</button>
                 <button>Todos</button>
             </div>
@@ -52,6 +52,10 @@
         function searchUser(event) {
             App.loadUser('userId', 'user-table', 'user-detail');
             event.preventDefault();
+        }
+
+        function loadPost() {
+            App.loadPost();
         }
 
     </script>
