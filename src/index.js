@@ -8,36 +8,36 @@ const { getUserPosts } = require('./post/post');
 
 function userTable(result) {
     return `<tr>
-        <td>Id</td>
+        <th class="table-secondary">Id</th>
         <td>${result.id}</td>
     </tr>
 
     <tr>
-        <td>Name</td>
+        <th class="table-secondary">Name</th>
         <td>${result.name}</td>
     </tr>
     <tr>
-        <td>Username</td>
+        <th class="table-secondary">Username</th>
         <td>${result.username}</td>
     </tr>
     <tr>
-        <td>Email</td>
+        <th class="table-secondary">Email</th>
         <td>${result.email}</td>
     </tr>
     <tr>
-        <td>Address</td>
+        <th class="table-secondary">Address</th>
         <td>${result.address.suite} ${result.address.street}, ${result.address.city}</td>
     </tr>
     <tr>
-        <td>Phone</td>
+        <th class="table-secondary">Phone</th>
         <td>${result.phone}</td>
     </tr>
     <tr>
-        <td>Website</td>
+        <th class="table-secondary">Website</th>
         <td>${result.website}</td>
     </tr>
     <tr>
-        <td>Company</td>
+        <th class="table-secondary">Company</th>
         <td>${result.company.name}</td>
     </tr>`;
 }
@@ -88,8 +88,8 @@ function todos() {
                 todoBodyContent = todoBodyContent.concat(
                     `<tr>
                         <th scope="row">${item.id}</th>
-                        <th>${item.title}</th>
-                        <th>${item.completed}</th>
+                        <th class="table-secondary">${item.title}</th>
+                        <th class="table-secondary">${item.completed}</th>
                     </tr>`
                 )
             })

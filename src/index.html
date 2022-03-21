@@ -15,7 +15,7 @@
     <div class="container">
         <div class="user-search">
             <h1>Employee</h1>
-            <div class="search-form">
+            <div class="search-form container">
                 <form onsubmit="searchUser(event)">
                     <b>Id: </b>
                     <input type="number" id="userId" onEnt>
@@ -24,11 +24,11 @@
             </div>
         </div>
 
-        <div class="user-detail">
+        <div class="user-detail container">
             <h1>Employee Details</h1>
-            <table id="user-table"></table>
+            <table id="user-table" class="table table-light table-borderless table-hover"></table>
             <br>
-            <div class="user-detail-button">
+            <div class="user-detail-button float-end">
                 <button onclick="loadPost(event)" class="btn btn-primary">Posts</button>
                 <button onclick="getAlbums(event)" class="btn btn-primary">Albums</button>
                 <button id="todos-btn" onclick="App.todos()" class="btn btn-primary">Todos</button>

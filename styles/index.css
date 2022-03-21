@@ -1,7 +1,3 @@
 .user-detail {
     visibility: hidden;
 }
-
-.user-detail table, th, td {
-    border: 1px solid black;
-}
