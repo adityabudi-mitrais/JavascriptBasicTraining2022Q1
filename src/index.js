@@ -25,7 +25,7 @@ function userTable (result) {
     </tr>
     <tr>
         <td>Address</td>
-        <td>${result.address.name}</td>
+        <td>${result.address.suite} ${result.address.street}, ${result.address.city}</td>
     </tr>
     <tr>
         <td>Phone</td>
