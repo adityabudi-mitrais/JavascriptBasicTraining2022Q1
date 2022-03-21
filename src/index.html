@@ -28,7 +28,7 @@
             <div class="user-detail-button">
                 <button>Posts</button>
                 <button onclick="getAlbums(event)">Albums</button>
-                <button>Todos</button>
+                <button id="todos-btn" onclick="App.todos()">Todos</button>
             </div>
         </div>
 
@@ -51,10 +51,25 @@
 
         <div class="todo-grid">
             <h1>Todos</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Completed?</th>
+                    </tr>
+                </thead>
+                <tbody id="todo-table-body">
+                    <tr>
+                        <th scope="row">1</th>
+                        <th>aaaaa</th>
+                        <th>true</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-
-
 
     <script src="../dist/main.js"></script>
     <script>

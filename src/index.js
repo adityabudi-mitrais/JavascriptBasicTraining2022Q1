@@ -1,4 +1,6 @@
 let { User } = require('./user/user');
+const Todo = require('./todo/todo');
+
 let user = new User();
 
 const { getAlbumByUserId } = require("./album/album");
@@ -55,6 +57,30 @@ const getAlbumData = () => {
         albumTable.replaceWith(newTable)
     })
 }
+    
+function todos() {
+    var id = document.getElementById('userId').value
+    var todoBody = document.getElementById('todo-table-body')
+
+    let todo = new Todo()
+    todo.loadTodos(id)
+        .then(result=> {
+            var todoBodyContent = ``
+            result.forEach(item => {
+                todoBodyContent = todoBodyContent.concat(
+                    `<tr>
+                        <th scope="row">${item.id}</th>
+                        <th>${item.title}</th>
+                        <th>${item.completed}</th>
+                    </tr>`
+                )
+            })
+            return todoBodyContent
+        })
+        .then(result=> {
+            todoBody.innerHTML = result
+        })
+}
 
 module.exports = {
     loadUser: (inputId, tableId, elementClass) => {
@@ -71,5 +97,6 @@ module.exports = {
                 console.log(err);
             })
     },
-    getAlbumData
+    getAlbumData,
+    todos
 }
